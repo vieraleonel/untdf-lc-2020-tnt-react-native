@@ -23,13 +23,18 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
+#import <GoogleMaps/GoogleMaps.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
 #if DEBUG
   InitializeFlipper(application);
 #endif
+
+  [GMSServices provideAPIKey:@""];
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge

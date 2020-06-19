@@ -9,6 +9,7 @@ import DemoInicial from './Demos/DemoInicial';
 import RestPromise from './Demos/RestPromise';
 import RestAsync from './Demos/RestAsync';
 import RestService from './Demos/RestService';
+import MapaScreen from './Demos/MapaScreen';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ const App = () => {
         <Stack.Screen name="REST_PROMISE" component={RestPromise} />
         <Stack.Screen name="REST_ASYNC" component={RestAsync} />
         <Stack.Screen name="REST_SERVICE" component={RestService} />
+        <Stack.Screen name="MAPA_CON_PERMISOS" component={MapaScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
