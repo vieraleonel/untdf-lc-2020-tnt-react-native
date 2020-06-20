@@ -10,6 +10,8 @@ import RestPromise from './Demos/RestPromise';
 import RestAsync from './Demos/RestAsync';
 import RestService from './Demos/RestService';
 import MapaScreen from './Demos/MapaScreen';
+import GraphqlScreen from './Demos/GraphqlScreen';
+import GraphqlProviderScreen from './Demos/GraphqlProviderScreen';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +39,8 @@ const App = () => {
         <Stack.Screen name="REST_ASYNC" component={RestAsync} />
         <Stack.Screen name="REST_SERVICE" component={RestService} />
         <Stack.Screen name="MAPA_CON_PERMISOS" component={MapaScreen} />
+        <Stack.Screen name="GRAPHQL" component={GraphqlScreen} />
+        <Stack.Screen name="GRAPHQL_PROVIDER" component={GraphqlProviderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

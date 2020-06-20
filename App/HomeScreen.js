@@ -19,6 +19,8 @@ const HomeScreen = () => {
         <Button title="REST async" onPress={_goTo('REST_ASYNC')} />
         <Button title="REST service" onPress={_goTo('REST_SERVICE')} />
         <Button title="Maps con permisos" onPress={_goTo('MAPA_CON_PERMISOS')} />
+        <Button title="GraphQL" onPress={_goTo('GRAPHQL')} />
+        <Button title="GraphQL Provider" onPress={_goTo('GRAPHQL_PROVIDER')} />
       </ScrollView>
     </SafeAreaView>
   );
