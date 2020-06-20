@@ -47,6 +47,7 @@ const MapaScreen = () => {
                 latitudeDelta: 0.015,
                 longitudeDelta: 0.0121,
               }}
+              onPress={()=>{setActiveMarker(false)}}
             >
               <Marker
                 coordinate={{
@@ -54,7 +55,10 @@ const MapaScreen = () => {
                   longitude: -122.433047,
                 }}
                 anchor={{ x: 0.5, y: 0.5 }}
-                onPress={() => { setActiveMarker(true) }}
+                onPress={(event) => {
+                  event.stopPropagation()
+                  setActiveMarker(true)
+                }}
               >
                 <View style={{ backgroundColor: '#40E9A4', padding: 10, borderRadius: 8, elevation: 3, shadowRadius: 2, shadowColor: 'black', shadowOffset: { width: 10, height: 10 } }}>
                   <Icon name="hotel" size={20} color="white" />
@@ -62,7 +66,7 @@ const MapaScreen = () => {
               </Marker>
             </MapView>
             {activeMarker ?
-              (<View style={{ position: 'absolute', bottom: 20, left: 20, height: 200, width: 200, backgroundColor: 'white' }}>
+              (<View style={{ position: 'absolute', bottom: 20, left: 20, height: 200, width: 200, backgroundColor: 'red' }}>
 
               </View>)
               : null}
