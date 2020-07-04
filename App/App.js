@@ -13,9 +13,18 @@ import RestServiceOffline from './Demos/RestServiceOffline';
 import MapaScreen from './Demos/MapaScreen';
 import GraphqlScreen from './Demos/GraphqlScreen';
 import GraphqlProviderScreen from './Demos/GraphqlProviderScreen';
+import ReduxAlojamientos from './Demos/ReduxAlojamientos';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import {Provider} from 'react-redux';
+import AlojamientosReducer from './Redux/AlojamientosSlice';
 
 import {initStorage} from './Services/Storage';
 initStorage();
+
+const rootReducer = combineReducers({
+  alojamientos: AlojamientosReducer,
+});
+const store = configureStore({reducer: rootReducer});
 
 const Stack = createStackNavigator();
 
@@ -31,23 +40,26 @@ const screenOptions = {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        _headerMode="none"
-        initialRouteName="Home"
-        screenOptions={screenOptions}>
-        <Stack.Screen name="HOME" component={HomeScreen} />
-        <Stack.Screen name="DEMO_INICIAL" component={DemoInicial} />
-        {/*<Stack.Screen name="TUR_TDF" component={TurTDF} /> */}
-        <Stack.Screen name="REST_PROMISE" component={RestPromise} />
-        <Stack.Screen name="REST_ASYNC" component={RestAsync} />
-        <Stack.Screen name="REST_SERVICE" component={RestService} />
-        <Stack.Screen name="REST_SERVICE_OFFLINE" component={RestServiceOffline} />
-        <Stack.Screen name="MAPA_CON_PERMISOS" component={MapaScreen} />
-        <Stack.Screen name="GRAPHQL" component={GraphqlScreen} />
-        <Stack.Screen name="GRAPHQL_PROVIDER" component={GraphqlProviderScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          _headerMode="none"
+          initialRouteName="Home"
+          screenOptions={screenOptions}>
+          <Stack.Screen name="HOME" component={HomeScreen} />
+          <Stack.Screen name="DEMO_INICIAL" component={DemoInicial} />
+          {/*<Stack.Screen name="TUR_TDF" component={TurTDF} /> */}
+          <Stack.Screen name="REST_PROMISE" component={RestPromise} />
+          <Stack.Screen name="REST_ASYNC" component={RestAsync} />
+          <Stack.Screen name="REST_SERVICE" component={RestService} />
+          <Stack.Screen name="REST_SERVICE_OFFLINE" component={RestServiceOffline} />
+          <Stack.Screen name="MAPA_CON_PERMISOS" component={MapaScreen} />
+          <Stack.Screen name="GRAPHQL" component={GraphqlScreen} />
+          <Stack.Screen name="GRAPHQL_PROVIDER" component={GraphqlProviderScreen} />
+          <Stack.Screen name="REDUX_ALOJAMIENTOS" component={ReduxAlojamientos} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 

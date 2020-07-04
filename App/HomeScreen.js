@@ -22,6 +22,7 @@ const HomeScreen = () => {
         <Button title="Maps con permisos" onPress={_goTo('MAPA_CON_PERMISOS')} />
         <Button title="GraphQL" onPress={_goTo('GRAPHQL')} />
         <Button title="GraphQL Provider" onPress={_goTo('GRAPHQL_PROVIDER')} />
+        <Button title="Redux alojamientos" onPress={_goTo('REDUX_ALOJAMIENTOS')} />
       </ScrollView>
     </SafeAreaView>
   );
